@@ -50,12 +50,19 @@
     - **_npm init_**
     - **_npm i -D typescript ts-node_**
     - **_npm i -D tsx_**
+    - **_npm i -D nodemon_**
   - Para probar y ejecutar un archivo con _Node_:
     - **_npx tsx src/index.ts_**
     - En el archivo:
       - **package.json**
     - Debemos agregar la línea:
       - **_"types": "module"_**
+    - En el mismo archivo, para configurar _NODEMON_ y que lea el contenido de los archivos, debemos configurar lo siguiente:
+      - ```
+        "scripts": {
+          "dev": "nodemon --exec tsx src/index.ts"
+        },
+      ```
     - Entorno de ejecución en _JavaScript_ que se ejecuta en el servidor.
     - Entre sus ventajas se encuentra la gran cantidad de librerías disponibles para integrarlas en proyectos con _NPM_.
     - Puede consultar base de datos, autenticar usuarios, manejar rutas y mucho más...

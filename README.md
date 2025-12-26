@@ -28,6 +28,10 @@
       }
     ```
     - Is this OK? (yes) yes
+  - En el archivo:
+    - **package.json**
+  - Debemos agregar la línea:
+    - **_"types": "module"_**
 
 ## Herramientas y/o Tecnologías
 
@@ -43,6 +47,15 @@
   - React
     - _Framework_ de _JavaScript_.
   - Node
+    - **_npm init_**
+    - **_npm i -D typescript ts-node_**
+    - **_npm i -D tsx_**
+  - Para probar y ejecutar un archivo con _Node_:
+    - **_npx tsx src/index.ts_**
+    - En el archivo:
+      - **package.json**
+    - Debemos agregar la línea:
+      - **_"types": "module"_**
     - Entorno de ejecución en _JavaScript_ que se ejecuta en el servidor.
     - Entre sus ventajas se encuentra la gran cantidad de librerías disponibles para integrarlas en proyectos con _NPM_.
     - Puede consultar base de datos, autenticar usuarios, manejar rutas y mucho más...

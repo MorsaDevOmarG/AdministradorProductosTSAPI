@@ -4,9 +4,14 @@
   "description": "REST API'S con Express y TypeScript",
   "license": "ISC",
   "author": "Omar Garcia",
-  "type": "commonjs",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
   }
 }

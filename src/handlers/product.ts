@@ -8,8 +8,10 @@ export const getProducts = async (req: Request, res: Response) => {
 
   try {
     const products = await Product.findAll({
-      order: [['createdAt', 'DESC']],
+      order: [["createdAt", "DESC"]],
       // limit: 10,
+      // atrtributes: omite ciertas columnas
+      // attributes: {exlude: ['id', 'availability', 'createdAt', 'updatedAt']}
     });
 
     res.json({
@@ -17,6 +19,27 @@ export const getProducts = async (req: Request, res: Response) => {
     });
   } catch (error) {
     console.log(colors.bgRed.white(`Error al obtener los productos: ${error}`));
+  }
+};
+
+export const getProductById = async (req: Request, res: Response) => {
+  try {
+    // console.log(colors.cyan(`ID recibido: ${req.params.id}`));
+
+    const { id } = req.params;
+    const product = await Product.findByPk(id);
+
+    if (!product) {
+      return res.status(404).json({
+        message: "Producto no encontrado",
+      });
+    }
+
+    res.json({
+      data: product,
+    });
+  } catch (error) {
+    console.log(colors.bgRed.white(`Error al obtener los productos por ID: ${error}`));
   }
 };
 

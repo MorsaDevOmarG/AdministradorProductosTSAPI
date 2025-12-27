@@ -92,7 +92,8 @@
 - DOTENV
   - **_npm i dotenv_**
   - Variables de entorno.
-
+- Colores para mensajes de CONSOLA
+  - **_npm i colors_**
 
 ### REST API
 

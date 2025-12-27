@@ -1,5 +1,8 @@
 import server from "./server";
+import colors from 'colors';
 
-server.listen(4000, () => {
-  console.log("Server API is running on http://localhost:4000");
+const port = 4000;
+
+server.listen(port, () => {
+  console.log(colors.bgBlue.white(`Servidor corriendo en el puerto: ${port}`));
 });

@@ -78,6 +78,10 @@
 - TypeScript
 - TailwindCSS
 - Vite
+- ORM
+  - Sequelize
+    - Soporta _TypeScript_ y diferentes bases de datos.
+    - _Oracle, Postgres, MySQL, MariaDB, SQLite, SQL SERVER_.
 
 ### REST API
 
@@ -141,4 +145,25 @@
 - Y debemos ejecutar:
   - **_npx tsc_**
 - Esto para que _NODE y EXPRESS_, pueden leer los archivos: **.ts** y los compilen a **.js**, con esta configuración.
+
+#### ORM
+
+- Un _ORM_ simplifica la comunicación entre una base de datos y el código de tu aplicación.
+- En lugar de escribir consultas de _SQL_ escribes funciones que son bastante similares a el código que ya escribes.
+  - ## VENTAJAS
+    - **Abstracción**
+      - Esto significa que puedes interactuar con la base de datos usando objetos, clases y métodos en lugar de escribir consultas _SQL_ complicadas.
+    - **Portabilidad**
+      - Puedes cambiar de un sistema de gestión de base de datos a otro sin tener que reescribir todo tu código.
+    - **Productividad**
+      - El _ORM_ se encarga de tareas repetitivas como la generación de consultas _SQL_, lo que te permite enfocarte en la lógica de tu aplicación.
+  - ### CONSIDERACIONES
+    - Debe estar en desarollo de forma activa.
+    - Un _ORM_ asegura la entrada de la información pero siempre debes validar.
+    - Cambiar de _ORM'S_ puede no ser tan simple, elige con cuidado antes de iniciar un proyecto.
+- _ORM'S_
+  - Mongoose
+  - Prisma
+  - Sequelize
+  - TypeORM
 -

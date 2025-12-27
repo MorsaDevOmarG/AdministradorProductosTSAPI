@@ -1,8 +1,7 @@
 import { Router } from "express";
-import { createProduct, getProductById, getProducts, updateAvailability, updateProducts } from "./handlers/product";
+import { createProduct, deleteProduct, getProductById, getProducts, updateAvailability, updateProducts } from "./handlers/product";
 import { body, check, param, validationResult } from "express-validator";
 import { handleInputErrors } from "./middleware";
-import { handleInputErrors } from './middleware/index';
 
 const router = Router();
 
@@ -51,9 +50,10 @@ router.post(
 
 router.put(
   "/:id",
-  body("name")
-    .notEmpty()
-    .withMessage("El nombre es obligatorio"),
+  param("id")
+    .isInt()
+    .withMessage("El ID debe ser un número"),
+  body("name").notEmpty().withMessage("El nombre es obligatorio"),
   body("price")
     .isNumeric()
     .withMessage("El precio debe ser un número")
@@ -61,7 +61,7 @@ router.put(
     .withMessage("El precio es obligatorio")
     .custom((value) => value > 0)
     .withMessage("El precio debe ser mayor que cero"),
-  body('availability')
+  body("availability")
     .isBoolean()
     .withMessage("Valor para disponibilidad no válido"),
   handleInputErrors,
@@ -70,12 +70,20 @@ router.put(
 
 router.patch(
   "/:id",
+  param("id")
+    .isInt()
+    .withMessage("El ID debe ser un número"),
   handleInputErrors,
   updateAvailability
 );
 
-router.delete("/", (req, res) => {
-  res.json("Desde DELETE");
-});
+router.delete(
+  "/:id",
+  param("id")
+    .isInt()
+    .withMessage("El ID debe ser un número"),
+  handleInputErrors,
+  deleteProduct
+);
 
 export default router;

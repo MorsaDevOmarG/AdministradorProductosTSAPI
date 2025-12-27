@@ -104,7 +104,28 @@ export const updateProducts = async (req: Request, res: Response) => {
   // Actualizar producto
   // console.log(colors.yellow(req.body));
 
+  // update: solo actualiza los campos que se envían en el body
   await product.update(req.body);
+  await product.save();
+
+  res.json({
+    data: product,
+  });
+};
+
+export const updateAvailability = async (req: Request, res: Response) => {
+  // res.json("Desde PATCH");
+
+  const { id } = req.params;
+  const product = await Product.findByPk(id);
+
+  if (!product) {
+    return res.status(404).json({
+      message: "Producto no encontrado",
+    });
+  }
+
+  product.availability = !product.dataValues.availability
   await product.save();
 
   res.json({

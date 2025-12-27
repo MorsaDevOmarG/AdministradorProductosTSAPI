@@ -116,6 +116,16 @@
 - PUT / PATCH: Actualización.
   - Editar un cliente
     - **clientes/3**
+  - **PUT**
+    - Se utiliza para actualizar o reemplazar completamente un recurso existente en un servidor _web_.
+    - Cuando haces una solicitud _PUT_, estás diciendo al servidor que tome la información proporcionada y la utilice para reemplazar completamente el recurso en la ubicación especificada.
+    - Por ejemplo, si tienes un objeto _JSON_ que representa un producto y haces una solicitud _PUT_ al servidor con ese objeto, el servidor reemplazará completamente los datos del producto existente con los datos proporcionados en la solicitud _PUT_.
+    - Actualizar completamente.
+  - **PATCH**
+    - Se utiliza para realizar modificaciones parciales en un recurso existente en un servidor _web_.
+    - En lugar de reemplazar completamente el recurso, como lo hace _PUT_, _PATCH_ permite realizar cambios específicos en los datos del recurso sin afectar el resto de la información.
+    - Por ejemplo, si tienes un objeto _JSON_ que representa un producto y haces una solicitud _PATCH_ al servidor con una pequeña parte de los datos actualizados (por ejemplo, cambiar solo disponibilidad), el servidor aplicará esos cambios sin afectar otros detalles del producto.
+    - Modificar parcialmente.
 - DELETE: Eliminar.
   - Borrar un cliente
     - **/clientes/8**

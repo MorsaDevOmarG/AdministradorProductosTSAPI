@@ -83,6 +83,10 @@
     - Soporta _TypeScript_ y diferentes bases de datos.
     - _Oracle, Postgres, MySQL, MariaDB, SQLite, SQL SERVER_.
     - También soporta relaciones de información, _lazy loading, eager loading_ y más.
+- Render
+  - _https://dashboard.render.com/_
+  - Es donde creamos la **Base de datos**.
+
 
 ### REST API
 

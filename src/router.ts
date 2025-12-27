@@ -1,17 +1,22 @@
 import { Router } from "express";
-import { createProduct } from "./handlers/product";
+import { createProduct, getProducts } from "./handlers/product";
 import { body, check, validationResult } from "express-validator";
 import { handleInputErrors } from "./middleware";
 
 const router = Router();
 
 // Routing - req: es lo que recibe el servidor o lo que tu estas enviando, res: es lo que el servidor responde
-router.get("/", (req, res) => {
-  // res.send('Hello, World!');
-  // res.json('Hello, World!');
+// router.get("/", (req, res) => {
+//   // res.send('Hello, World!');
+//   // res.json('Hello, World!');
 
-  res.json("Desde GET");
-});
+//   res.json("Desde GET");
+// });
+
+router.get(
+  "/",
+  getProducts
+);
 
 // router.post("/", (req, res) => {
 //   res.json("Desde POST");

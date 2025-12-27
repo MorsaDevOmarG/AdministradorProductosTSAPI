@@ -3,6 +3,23 @@ import colors from "colors";
 import Product from "../models/Product.model";
 import { check, validationResult } from "express-validator";
 
+export const getProducts = async (req: Request, res: Response) => {
+  // res.json("Desde GET");
+
+  try {
+    const products = await Product.findAll({
+      order: [['createdAt', 'DESC']],
+      // limit: 10,
+    });
+
+    res.json({
+      data: products,
+    });
+  } catch (error) {
+    console.log(colors.bgRed.white(`Error al obtener los productos: ${error}`));
+  }
+};
+
 export const createProduct = async (req: Request, res: Response) => {
   // console.log(colors.yellow(req.body));
 

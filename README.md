@@ -202,6 +202,11 @@
 
 ### TESTING
 
+- **_npm i -D supertest @types/supertest jest @types/jest ts-jest_**
+- Después de instalar, ejecutamos:
+  - **_npx ts-jest config:init_**
+- Esto nos va crear el archivo de:
+  - **jest.config.js**
 - Escribir _Testing_ para nuestras _API'S_ no es muy diferente que aplicar _testing_ a aplicaciones en _React_.
 - No porque nuestra _API_ este hecha con _TypeScript_ significa que no vamos a añadir pruebas.
 - Las pruebas siempre deben estar ahí y en muchos trabajos tu código debe ir acompañado por una serie de _tests_.
@@ -217,4 +222,20 @@
     **SUPERTEST**
       - _Jest_ nos da una serie de funciones para probar el código, pero con _supertest_ podremos realizar peticiones hacia nuestra _API_ y revisar que el código funcione como esperamos.
       - Con _Supertest_ podemos realizar pruebas de integración entre las _URL'S_ de nuestra _API_ y el _ORM_.
-
+- Extensiones
+  - **JEST**
+    - Puede lerr archivos de 3 formas:
+      1. Con exntesión: **.test.js**
+      1. Con extensión: **.spec.js**
+      1. Dentro de la carpeta: __ tests __
+- Para este proyecto, utilizamos la creación de la carpeta __ tests__, dentro se creo un archivo y ahí ingresamos el código para que se ejecute nuestra prueba.
+- Configuramos el **package.json** con lo siguiente:
+  - ```
+    "scripts": {
+      "dev": "nodemon --exec tsx src/index.ts",
+      "test": "jest"
+    },
+  ```
+  - Ejecutamos en consola:
+    - **_npm test_**
+  - Nos arrojará el resultado si paso la prueba o no.

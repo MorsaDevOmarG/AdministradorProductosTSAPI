@@ -23,6 +23,7 @@ dotenv.config();
 // El signo de exclamación le dice a TypeScript que confíe en que esta variable de entorno estará definida
 const db = new Sequelize(process.env.DATABASE_URL!, {
   models: [__dirname + '/../models/**/*.ts'], // Ruta a los modelos
+  logging: false, // Desactivar logging de SQL
 });
 
 export default db;

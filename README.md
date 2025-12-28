@@ -233,7 +233,7 @@
   - ```
     "scripts": {
       "dev": "nodemon --exec tsx src/index.ts",
-      "test": "jest"
+      "test": "jest --detectOpenHandles"
     },
   ```
   - Ejecutamos en consola:

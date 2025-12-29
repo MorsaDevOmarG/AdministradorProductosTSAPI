@@ -81,7 +81,7 @@ export const createProduct = async (req: Request, res: Response) => {
   try {
     const product = await Product.create(req.body);
 
-    res.json({
+    res.status(201).json({
       data: product,
     });
   } catch (error) {
@@ -125,7 +125,7 @@ export const updateAvailability = async (req: Request, res: Response) => {
     });
   }
 
-  product.availability = !product.dataValues.availability
+  product.availability = !product.dataValues.availability;
   await product.save();
 
   res.json({
@@ -148,6 +148,6 @@ export const deleteProduct = async (req: Request, res: Response) => {
   await product.destroy();
 
   res.json({
-    data: 'Producto eliminado correctamente',
+    data: "Producto eliminado correctamente",
   });
 };

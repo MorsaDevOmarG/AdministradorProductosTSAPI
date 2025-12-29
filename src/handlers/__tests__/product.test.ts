@@ -1,16 +1,16 @@
 import request from "supertest";
 import server from "../../server";
+import e from "express";
 
 describe("POST /api/products", () => {
   it("should display validation errors", async () => {
     const response = await request(server)
       .post("/api/products")
       // send: es lo que vamos a pasarle
-      .send({
-      });
-    
+      .send({});
+
     expect(response.status).toBe(400);
-    expect(response.body).toHaveProperty('errors');
+    expect(response.body).toHaveProperty("errors");
     expect(response.body.errors).toHaveLength(4);
 
     expect(response.status).not.toBe(404);
@@ -25,9 +25,9 @@ describe("POST /api/products", () => {
         name: "Test Product",
         price: 0,
       });
-    
+
     expect(response.status).toBe(400);
-    expect(response.body).toHaveProperty('errors');
+    expect(response.body).toHaveProperty("errors");
     expect(response.body.errors).toHaveLength(1);
 
     expect(response.status).not.toBe(404);
@@ -42,15 +42,15 @@ describe("POST /api/products", () => {
         name: "Test Product",
         price: "hola",
       });
-    
+
     expect(response.status).toBe(400);
-    expect(response.body).toHaveProperty('errors');
+    expect(response.body).toHaveProperty("errors");
     expect(response.body.errors).toHaveLength(2);
 
     expect(response.status).not.toBe(404);
     expect(response.body.errors).not.toHaveLength(4);
   });
-  
+
   it("should create a new product", async () => {
     const response = await request(server)
       .post("/api/products")
@@ -59,12 +59,24 @@ describe("POST /api/products", () => {
         name: "Test Product",
         price: 19.99,
       });
-    
+
     expect(response.status).toEqual(201);
-    expect(response.body).toHaveProperty('data');
+    expect(response.body).toHaveProperty("data");
     expect(response.status).not.toBe(404);
     expect(response.status).not.toBe(200);
-    expect(response.body).not.toHaveProperty('errors');
-
+    expect(response.body).not.toHaveProperty("errors");
   });
+});
+
+describe("GET /api/products", () => {
+  it("GET a JSON response with products", async () => {
+    const response = await request(server).get("/api/products");
+
+    expect(response.status).toBe(200);
+    expect(response.headers["content-type"]).toMatch(/json/);
+    expect(response.body).toHaveProperty("data");
+    expect(response.body.data).toHaveLength(1);
+    expect(response.status).not.toBe(404);
+    expect(response.body).not.toHaveProperty("errors");
+  })
 });

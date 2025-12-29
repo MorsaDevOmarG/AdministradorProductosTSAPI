@@ -104,4 +104,11 @@ describe('GET /api/products/:id', () => {
     expect(response.body.errors).toHaveLength(1);
     expect(response.body.errors[0].msg).toBe("El ID debe ser un número");
   });
+
+  it('get a JSON response for a single product', async () => {
+    const response = await request(server).get('/api/products/1');
+
+    expect(response.status).toBe(200);
+    expect(response.body).toHaveProperty('data');
+  });
 });

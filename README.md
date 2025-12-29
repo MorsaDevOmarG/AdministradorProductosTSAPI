@@ -239,3 +239,8 @@
   - Ejecutamos en consola:
     - **_npm test_**
   - Nos arrojará el resultado si paso la prueba o no.
+
+### HTTP
+
+  - _https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Status_
+

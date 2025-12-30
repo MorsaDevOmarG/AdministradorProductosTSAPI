@@ -148,6 +148,50 @@ router.post(
   createProduct
 );
 
+/**
+ * @swagger
+ * /api/products/{id}:
+ *   put:
+ *    summary: Actualiza un producto existente
+ *    tags:
+ *      - Products
+ *    description: Actualiza el nombre, precio y disponibilidad de un producto existente usando su ID
+ *    parameters:
+ *     - in: path
+ *       name: id
+ *       description: ID del producto
+ *       required: true
+ *       schema:
+ *        type: integer
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            type: object
+ *            properties:
+ *              name:
+ *                type: string
+ *                example: Monitor 24 pulgadas
+ *              price:
+ *                type: number
+ *                example: 3000.50
+ *              availability:
+ *                type: boolean
+ *                example: true
+ *    responses:
+ *      200:
+ *        description: Producto actualizado correctamente
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/Product'
+ *      404:
+ *        description: Producto no encontrado
+ *      400:
+ *        description: Solicitud inválida
+ */
+
 router.put(
   "/:id",
   param("id").isInt().withMessage("El ID debe ser un número"),

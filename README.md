@@ -254,4 +254,12 @@
   - 60% - 80%: Se puede mejorar.
   - >= 80%: Es suficiente y una buena medida.
   - 100%: Poco probable.
--
+
+## DOCUMENTACIÓN API'S
+
+- La documentación de una _API_ es contenido técnico que describe una _API_ a detalle.
+- Incluye instrucciones sobre como utilizar una _API_ de forma correcta como son _endpoints_ soportados, tipos de petición, que valores soporte y más.
+- Una vez que una _API_ es publicada, la documentación se asegura que otras herramientas (internas o externas) sepan que se puede hacer y como utilizarla.
+- La principal razón de porque documentar una _API_ es para que sea utilizada de forma correcta.
+- Otra razón es para tener mayor adopción, una buena documentación hará que sea claro que funcionalidad hay disponible y los usuarios podrán sacar máximo provecho.
+- Redu ce costos de soporte.

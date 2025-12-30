@@ -1,9 +1,40 @@
 import { Router } from "express";
-import { createProduct, deleteProduct, getProductById, getProducts, updateAvailability, updateProducts } from "./handlers/product";
+import {
+  createProduct,
+  deleteProduct,
+  getProductById,
+  getProducts,
+  updateAvailability,
+  updateProducts,
+} from "./handlers/product";
 import { body, check, param, validationResult } from "express-validator";
 import { handleInputErrors } from "./middleware";
 
 const router = Router();
+/**
+ * @swagger
+ * components:
+ *  schemas:
+ *   Product:
+ *    type: object
+ *    properties:
+ *     id:
+ *      type: integer
+ *      description: ID del producto
+ *      example: 1
+ *     name:
+ *      type: string
+ *      description: Nombre del producto
+ *      example: Monitor 24 pulgadas
+ *     price:
+ *      type: number
+ *      description: Precio del producto
+ *      example: 3000.50
+ *     availability:
+ *      type: boolean
+ *      description: Disponibilidad del producto
+ *      example: true
+*/
 
 // Routing - req: es lo que recibe el servidor o lo que tu estas enviando, res: es lo que el servidor responde
 // router.get("/", (req, res) => {
@@ -13,16 +44,11 @@ const router = Router();
 //   res.json("Desde GET");
 // });
 
-router.get(
-  "/",
-  getProducts
-);
+router.get("/", getProducts);
 
 router.get(
   "/:id",
-  param("id")
-    .isInt()
-    .withMessage("El ID debe ser un número"),
+  param("id").isInt().withMessage("El ID debe ser un número"),
   handleInputErrors,
   getProductById
 );
@@ -34,9 +60,7 @@ router.get(
 // Body se utiliza para enviar datos al servidor en funciones que no son asíncronas
 router.post(
   "/",
-  body("name")
-    .notEmpty()
-    .withMessage("El nombre es obligatorio"),
+  body("name").notEmpty().withMessage("El nombre es obligatorio"),
   body("price")
     .isNumeric()
     .withMessage("El precio debe ser un número")
@@ -50,9 +74,7 @@ router.post(
 
 router.put(
   "/:id",
-  param("id")
-    .isInt()
-    .withMessage("El ID debe ser un número"),
+  param("id").isInt().withMessage("El ID debe ser un número"),
   body("name").notEmpty().withMessage("El nombre es obligatorio"),
   body("price")
     .isNumeric()
@@ -70,18 +92,14 @@ router.put(
 
 router.patch(
   "/:id",
-  param("id")
-    .isInt()
-    .withMessage("El ID debe ser un número"),
+  param("id").isInt().withMessage("El ID debe ser un número"),
   handleInputErrors,
   updateAvailability
 );
 
 router.delete(
   "/:id",
-  param("id")
-    .isInt()
-    .withMessage("El ID debe ser un número"),
+  param("id").isInt().withMessage("El ID debe ser un número"),
   handleInputErrors,
   deleteProduct
 );

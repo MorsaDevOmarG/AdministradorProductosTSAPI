@@ -275,6 +275,8 @@ router.patch(
  *        description: Producto eliminado correctamente
  *      404:
  *        description: Producto no encontrado
+ *      400:
+ *        description: Solicitud inválida
  */
 
 router.delete(

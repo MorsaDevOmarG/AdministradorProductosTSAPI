@@ -1,6 +1,5 @@
 import request from "supertest";
 import server from "../../server";
-import e from "express";
 
 describe("POST /api/products", () => {
   it("should display validation errors", async () => {

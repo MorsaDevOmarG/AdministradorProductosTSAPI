@@ -22,24 +22,33 @@ connectDB();
 // Instancia de express
 const server = express();
 
-// Permitir conexiones
-const corsOptions: CorsOptions = {
-  origin: function (origin, callback) {
-    console.log(`Origin: ${origin}`);
+// 🔐 Content Security Policy (GLOBAL)
+// server.use((req, res, next) => {
+//   res.setHeader(
+//     "Content-Security-Policy",
+//     "default-src 'self'; img-src 'self'"
+//   );
+//   next();
+// });
+
+// // Permitir conexiones
+// const corsOptions: CorsOptions = {
+//   origin: function (origin, callback) {
+//     console.log(`Origin: ${origin}`);
     
-    if (origin === process.env.FRONTEND_URL) {
-      // console.log("Permitir...");)
+//     if (origin === process.env.FRONTEND_URL) {
+//       // console.log("Permitir...");)
 
-      callback(null, true); // permitir todos
-    } else {
-      // console.log("Denegar...");
+//       callback(null, true); // permitir todos
+//     } else {
+//       // console.log("Denegar...");
 
-      callback(new Error('Error de CORS'));
-    }
-  }
-};
+//       callback(new Error('Error de CORS'));
+//     }
+//   }
+// };
 
-server.use(cors(corsOptions));
+// server.use(cors(corsOptions));
 
 // Leer datos de FORMULARIOS - Middlewares
 server.use(express.json());
